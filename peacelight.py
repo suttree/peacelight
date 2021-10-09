@@ -14,24 +14,29 @@ import time
 import math
 
 def peace():
-    i = 0
+	i = 1
+	step = 1
 
-    while True:
-        # RESET THE COUNTER IF NEEDED
-        if (i >= scrollphathd.width):
-            i = 0
+	while True:
+		scrollphathd.clear()
+		scrollphathd.fill(0.5, 0, 0, i, scrollphathd.height)
+		scrollphathd.show()
 
-        scrollphathd.fill(0.5, 0, 0, i, scrollphathd.height)
-        scrollphathd.show()
+		# SLEEP
+		time.sleep(0.5)
 
-        # SLEEP
-        time.sleep(1)
+		print i
+		print "----"
 
-        print i
-        print "----"
+		# CONTROL FLOW
+		if (i >= scrollphathd.width or i <= 0):
+			if step == 1:
+				step = -1
+			else:
+				step = 1
 
-        i = i+1
+		i = i + step
 
 
 if __name__ == "__main__":
-    peace()
+	peace()
