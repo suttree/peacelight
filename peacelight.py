@@ -1,22 +1,5 @@
 #!/usr/bin/env python
 
-import scrollphathd
-
-def peace(brightness-1.0):
-    scrollphathd.fill(brightness, x=0, y=0, width=0, height=scrollphathd.DISPLAY_HEIGHT)
-
-
-while True:
-    # FILL FROM WIDTH TO 0, FULL HEIGHT
-    # SLEEP
-    time.sleep(0.001)
-    # FILL FROM WIDTH-1 TO 0, FULL HEIGHT 
-    # SHOW THE BUFFER
-    scrollphathd.show()
-
-
-    # DO THE SAME BUT LOWERING THE BRIGHTNESS TOO
-
 '''
 Parameters
 brightness: Brightness of pixels
@@ -25,3 +8,30 @@ y: Offset y: distance of the area from the top of the buffer
 width: Width of the area (default is 17)
 height: Height of the area (default is 7)
 '''
+
+import scrollphathd
+import time
+import math
+
+def peace():
+    i = 0
+
+    while True:
+        # RESET THE COUNTER IF NEEDED
+        if (i >= scrollphathd.width):
+            i = 0
+
+        scrollphathd.fill(0.5, 0, 0, i, scrollphathd.height)
+        scrollphathd.show()
+
+        # SLEEP
+        time.sleep(1)
+
+        print i
+        print "----"
+
+        i = i+1
+
+
+if __name__ == "__main__":
+    peace()
