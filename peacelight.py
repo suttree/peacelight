@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 '''
-Parameters
+Scrollphat fill parameters
 brightness: Brightness of pixels
 x: Offset x: distance of the area from the left of the buffer
 y: Offset y: distance of the area from the top of the buffer
@@ -48,12 +48,20 @@ def peace():
 		hour = datetime.now().hour
 		if (curr_hour <> hour):
 			curr_hour = hour
-			if (hour >= 11 and hour <= 13):
-				brightness = 1.0
+			if (hour >= 11 and hour <= 14):
+				brightness = 1.0 # brightest around noon
 			elif (hour < 11 and hour > 0):
-				brightness = brightness + 0.09
-			elif (hour > 13 and hour < 24):
-				brightness = brightness - 0.9
+				brightness = brightness + 0.09 # taper up towards noon
+			elif (hour > 14 and hour <= 23):
+				brightness = brightness - 0.11 # taper down towards midnight
+			else:
+				brightness = -1.0 # erk, off
+
+			# Ensure we max out at +=1.0, for interpolation later on
+			if brightness > 1.0:
+				brightness = 1.0
+			elif brightness < -1.0:
+				brightness = -1.0
 
 def mapRange(value, inMin, inMax, outMin, outMax):
 	return outMin + (((value - inMin) / (inMax - inMin)) * (outMax - outMin))
