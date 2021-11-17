@@ -37,7 +37,7 @@ def peace():
 
 		# Control flow
 		if (i >= scrollphathd.width or i <= 0):
-			time.sleep( abs(2.25 + float(pnoise1( i * seed ) ) * 9.0 ) )
+			time.sleep( abs(5.25 + float(pnoise1( i * seed ) ) * 50.0 ) )
 			if step == 1:
 				step = -1
 			else:
