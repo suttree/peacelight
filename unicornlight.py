@@ -6,13 +6,6 @@ from unicornhatmini import UnicornHATMini
 
 unicornhatmini = UnicornHATMini()
 unicornhatmini.set_brightness(0.1)
-unicornhatmini.set_rotation(0)
-
-width, height = unicornhatmini.get_shape()
-
-#unicornhatmini.set_pixel(x, y, r, g, b)
-#unicornhatmini.show()
-#time.sleep(1.0 / 60)
 
 while True:
     hue = (time.time() / 10.0)
@@ -21,6 +14,50 @@ while True:
     unicornhatmini.show()
     time.sleep(1.0 / 60)
 
+
+
+
+
+
+
+
+#   #!/usr/bin/env python
+#   
+#   '''
+#   Scrollphat fill parameters
+#   brightness: Brightness of pixels
+#   x: Offset x: distance of the area from the left of the buffer
+#   y: Offset y: distance of the area from the top of the buffer
+#   width: Width of the area (default is 17)
+#   height: Height of the area (default is 7)
+#   '''
+#   
+#   from datetime import datetime
+#   from noise import pnoise1
+#   from numpy import interp
+#   import scrollphathd
+#   import random
+#   import time
+#   from colorsys import hsv_to_rgb
+#   from unicornhatmini import UnicornHATMini
+#   
+#   unicornhatmini = UnicornHATMini()
+#   unicornhatmini.set_brightness(0.1)
+#   unicornhatmini.set_rotation(0)
+#   
+#   width, height = unicornhatmini.get_shape()
+#   
+#   #unicornhatmini.set_pixel(x, y, r, g, b)
+#   #unicornhatmini.show()
+#   #time.sleep(1.0 / 60)
+#   
+#   while True:
+#       hue = (time.time() / 10.0)
+#       r, g, b = [int(c * 255) for c in hsv_to_rgb(hue, 1.0, 1.0)]
+#       unicornhatmini.set_all(r, g, b)
+#       unicornhatmini.show()
+#       time.sleep(1.0 / 60)
+#   
 
 
 
