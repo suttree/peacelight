@@ -1,3 +1,35 @@
+#!/usr/bin/env python3
+
+import time
+from colorsys import hsv_to_rgb
+from unicornhatmini import UnicornHATMini
+
+unicornhatmini = UnicornHATMini()
+unicornhatmini.set_brightness(0.1)
+unicornhatmini.set_rotation(0)
+
+width, height = unicornhatmini.get_shape()
+
+#unicornhatmini.set_pixel(x, y, r, g, b)
+#unicornhatmini.show()
+#time.sleep(1.0 / 60)
+
+while True:
+    hue = (time.time() / 10.0)
+    r, g, b = [int(c * 255) for c in hsv_to_rgb(hue, 1.0, 1.0)]
+    unicornhatmini.set_all(r, g, b)
+    unicornhatmini.show()
+    time.sleep(1.0 / 60)
+
+
+
+
+
+
+
+
+
+
 #!/usr/bin/env python
 
 '''
@@ -46,7 +78,7 @@ def peace():
 		
 		# Map brightness to hour of day, each hour
 		hour = datetime.now().hour
-		if (curr_hour <> hour):
+		if (curr_hour != hour):
 			curr_hour = hour
 			if (hour >= 11 and hour <= 14):
 				brightness = 1.0 # brightest around noon
