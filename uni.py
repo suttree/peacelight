@@ -12,8 +12,8 @@ while True:
     # afternoon: 6-12
     # evening: 13-17
     hour = datetime.datetime.now().hour
-    #print(hour)
-    #print('---')
+    print(hour)
+    print('---hour')
 
     if hour in range(6, 12):
         start, end = 0, 5
@@ -37,6 +37,7 @@ while True:
             print(x, y)
             uh.set_pixel(x, y, r, g, b)
 
+    uh.clear()
     uh.show()
 
     time.sleep(360)
