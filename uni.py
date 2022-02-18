@@ -27,7 +27,7 @@ while True:
     else:
         start, end = 0, 0
         uh.set_brightness(0.0)
-    #print(start, end)
+    print(start, end)
 
     for x in range(start, end):
         hue = (time.time() / 1000.0)
@@ -39,4 +39,4 @@ while True:
 
     uh.show()
 
-    time.sleep(30)
+    time.sleep(360)
