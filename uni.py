@@ -41,10 +41,13 @@ while True:
 
     if hour in range(0, 8):
         start, end = 0, 7
+        uh.set_brightness(0.3)
     elif hour in range(8, 16):
         start, end = 3, 13
+        uh.set_brightness(0.7)
     elif hour in range(16, 24):
         start, end = 9, 16
+        uh.set_brightness(0.1)
     print(start, end)
 
     for x in range(start, end):
