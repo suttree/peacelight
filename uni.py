@@ -8,6 +8,7 @@ uh = UnicornHATMini()
 uh.set_brightness(0.1)
 
 hour = start = end = num_rows = 0
+max_width = 11
 
 # From https://stackoverflow.com/questions/1969240/mapping-a-range-of-values-to-another
 def mapRange(value, inMin, inMax, outMin, outMax):
