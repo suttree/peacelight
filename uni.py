@@ -22,7 +22,7 @@ while True:
     h = datetime.datetime.now().hour
 
     # attempting to map time to position, failing for now...
-    hour = mapRange(h, 0, 17, 0, 23)
+    hour = mapRange(h, 0, 23, 0, 17)
     print(h)
     print(hour)
     print('---h, hour')
