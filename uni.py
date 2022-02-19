@@ -7,7 +7,11 @@ uh = UnicornHATMini()
 
 uh.set_brightness(0.1)
 
-hour, start, end, num_rows = 0
+hour = start = end = num_rows = 0
+
+# From https://stackoverflow.com/questions/1969240/mapping-a-range-of-values-to-another
+def mapRange(value, inMin, inMax, outMin, outMax):
+    return outMin + (((value - inMin) / (inMax - inMin)) * (outMax - outMin))
 
 while True:
     uh.clear()
@@ -15,9 +19,13 @@ while True:
     # morning: 0-5
     # afternoon: 6-12
     # evening: 13-17
-    hour = datetime.datetime.now().hour
+    h = datetime.datetime.now().hour
+
+    # attempting to map time to position, failing for now...
+    hour = mapRange(h, 0, 17, 0, 23)
+    print(h)
     print(hour)
-    print('---hour')
+    print('---h, hour')
 
     # v0.1
     #if hour in range(6, 12):
