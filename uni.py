@@ -59,17 +59,42 @@ while True:
 
 
     # v0.3 (update every 1.4 hours/5040 seconds)
-    if num_rows >= 10:
-        start = start + 1
-        end = end + 1
-        if start > 17:
-            start, end = 0, 0
-    else:
-        end = end + 1
-        num_rows = num_rows + 1
-    print(start, end, num_rows)
-    print('-----s, e, n_r')
-    
+    #if num_rows >= 10:
+    #    start = start + 1
+    #    end = end + 1
+    #    if start > 17:
+    #        start, end = 0, 0
+    #else:
+    #    end = end + 1
+    #    num_rows = num_rows + 1
+    #print(start, end, num_rows)
+    #print('-----s, e, n_r')
+
+    # v0.4
+    if hour in range(0, 4):
+        start, end = 0, 7
+        uh.set_brightness(0.1)
+    elif hour in range(4, 8):
+        start, end = 2, 9
+        uh.set_brightness(0.3)
+    elif hour in range(8, 12):
+        start, end = 3, 12
+        uh.set_brightness(0.5)
+    elif hour in range(12, 16):
+        start, end = 4, 13
+        uh.set_brightness(0.7)
+    elif hour in range(16, 18):
+        start, end = 6, 16
+        uh.set_brightness(0.5)
+    elif hour in range(18, 20):
+        start, end = 8, 16
+        uh.set_brightness(0.5)
+    elif hour in range(20, 24):
+        start, end = 10, 16
+        uh.set_brightness(0.1)
+    print(start, end)
+
+
     for x in range(start, end):
         hue = (time.time() / 1000.0)
         r, g, b = [int(c * 255) for c in hsv_to_rgb(hue, 1.0, 1.0)]
