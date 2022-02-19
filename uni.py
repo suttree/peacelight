@@ -20,11 +20,12 @@ while True:
     # morning: 0-5
     # afternoon: 6-12
     # evening: 13-17
-    h = datetime.datetime.now().hour
+    hour = datetime.datetime.now().hour
 
     # attempting to map time to position, failing for now...
-    hour = mapRange(h, 0, 23, 0, 17)
-    print(h)
+    #h = datetime.datetime.now().hour
+    #hour = mapRange(h, 0, 23, 0, 17)
+    #print(h)
     print(hour)
     print('---h, hour')
 
