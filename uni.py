@@ -17,27 +17,23 @@ while True:
     # evening: 13-17
     hour = datetime.datetime.now().hour
 
-    hour = hour + 1
-    if hour > 24:
-        hour = 0
-
     print(hour)
     print('---hour')
 
-    if hour in range(6, 12):
-        start, end = 0, 5
-        uh.set_brightness(0.1)
-    elif hour in range(12, 18):
-        start, end = 6, 12
-        uh.set_brightness(0.5)
-    elif hour in range(18, 20):
-        start, end = 11, 16
-    elif hour in range(20, 23):
-        start, end = 13, 16
-        uh.set_brightness(0.1)
-    else:
-        start, end = 0, 1
-        uh.set_brightness(0.0)
+    #if hour in range(6, 12):
+    #    start, end = 0, 5
+    #    uh.set_brightness(0.1)
+    #elif hour in range(12, 18):
+    #    start, end = 6, 12
+    #    uh.set_brightness(0.5)
+    #elif hour in range(18, 20):
+    #    start, end = 11, 16
+    #elif hour in range(20, 23):
+    #    start, end = 13, 16
+    #    uh.set_brightness(0.1)
+    #else:
+    #    start, end = 0, 1
+    #    uh.set_brightness(0.0)
 
     if hour in range(0, 8):
         start, end = 0, 7
