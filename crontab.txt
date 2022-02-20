@@ -21,6 +21,7 @@
 # For more information see the manual pages of crontab(5) and cron(8)
 #
 # m h  dom mon dow   command
-@reboot /usr/bin/env python /home/pi/src/peacelight/peacelight.py >> /tmp/cron.log 2>&1
+#@reboot /usr/bin/env python /home/pi/src/peacelight/peacelight.py >> /tmp/cron.log 2>&1
+@reboot /usr/bin/env python /home/pi/src/peacelight/uni.py >> /tmp/cron.log 2>&1
 
 * */30 * * * cd /home/pi/src/peacelight && git pull >> /tmp/cron.log 2>&1
