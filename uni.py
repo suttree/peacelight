@@ -109,7 +109,7 @@ while True:
 
 
     for x in range(start, end):
-        hue = (time.time() / 1000.0)
+        hue = (time.time() / 100.0)
         r, g, b = [int(c * 255) for c in hsv_to_rgb(hue, 1.0, 1.0)]
 
         for y in range(7):
