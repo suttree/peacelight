@@ -76,43 +76,41 @@ while True:
     pn = noise.pnoise2(random(), random())
     if hour in range(0, 2):
         start, end = 0, 2
-        uh.set_brightness(0.1 + pn)
+        uh.set_brightness(0.0 + pn)
     elif hour in range(2, 4):
         start, end = 1, 3
-        uh.set_brightness(0.2 + pn)
+        uh.set_brightness(0.1 + pn)
     elif hour in range(4, 6):
         start, end = 2, 4
-        uh.set_brightness(0.3 + pn)
+        uh.set_brightness(0.2 + pn)
     elif hour in range(6, 8):
         start, end = 3, 5
-        uh.set_brightness(0.3 + pn)
+        uh.set_brightness(0.4 + pn)
     elif hour in range(8, 10):
         start, end = 4, 8
-        uh.set_brightness(0.5 + pn)
+        uh.set_brightness(0.6 + pn)
     elif hour in range(10, 12):
         start, end = 6, 10
-        uh.set_brightness(0.7 + pn)
+        uh.set_brightness(0.8 + pn)
     elif hour in range(12, 14):
         start, end = 5, 10
         uh.set_brightness(1.0 + pn)
     elif hour in range(16, 18):
         start, end = 6, 12
-        uh.set_brightness(0.7 + pn)
+        uh.set_brightness(0.9 + pn)
     elif hour in range(18, 20):
         start, end = 9, 13
-        uh.set_brightness(0.4 + pn)
+        uh.set_brightness(0.7 + pn)
     elif hour in range(20, 22):
         start, end = 13, 15
-        uh.set_brightness(0.2 + pn)
+        uh.set_brightness(0.5 + pn)
     elif hour in range(22, 24):
         start, end = 16, 17
-        uh.set_brightness(0.1 + pn)
+        uh.set_brightness(0.2 + pn)
     print(start, end, pn)
 
-    hhue = mapRange(datetime.datetime.now().hour, 0, 23, 0, 255)
     for x in range(start, end):
-        #hue = (hhue / 100)
-        hue = hhue
+        hue = (time.time() / 10.0)
         r, g, b = [int(c * 255) for c in hsv_to_rgb(hue, 1.0, 1.0)]
 
         for y in range(7):
