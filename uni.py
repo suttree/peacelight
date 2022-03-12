@@ -11,6 +11,18 @@ uh.set_brightness(0.1)
 hour = start = end = num_rows = 0
 max_width = 11
 
+colours = [
+    [99, 37, 33],
+    [253,96,20],
+    [253,125,1],
+    [253,217,20],
+    [251,253,1],
+    [253,246,81],
+]
+
+colour = colours.pop(0)
+colours.append(colour)
+
 # From https://stackoverflow.com/questions/1969240/mapping-a-range-of-values-to-another
 def mapRange(value, inMin, inMax, outMin, outMax):
     return outMin + (((value - inMin) / (inMax - inMin)) * (outMax - outMin))
@@ -110,8 +122,10 @@ while True:
     print(start, end, pn)
 
     for x in range(start, end):
-        hue = (time.time() / 10.0)
-        r, g, b = [int(c * 255) for c in hsv_to_rgb(hue, 1.0, 1.0)]
+        #hue = (time.time() / 10.0)
+        #r, g, b = [int(c * 255) for c in hsv_to_rgb(hue, 1.0, 1.0)]
+
+        r, g, b = colour
 
         for y in range(7):
             print(x, y)
