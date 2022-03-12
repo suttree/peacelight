@@ -119,4 +119,4 @@ while True:
 
     uh.show()
 
-    time.sleep(randint(2, 2520))
+    time.sleep(randint(2, 60))
