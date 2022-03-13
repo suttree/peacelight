@@ -144,6 +144,8 @@ while True:
 
         for y in range(7):
             print(x, y)
+            print(r, g, b)
+            print("----")
             uh.set_pixel(x, y, r, g, b)
 
     uh.show()
