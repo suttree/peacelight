@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import time, datetime, noise, cmapy
 from colorsys import hsv_to_rgb
-from random import random, randint
+from random import random, randint, randrange
 
 from unicornhatmini import UnicornHATMini
 uh = UnicornHATMini()
@@ -21,6 +21,7 @@ max_width = 11
 #    [253,246,81],
 #]
 
+# TODO
 # https://pypi.org/project/colour/
 # try list(red.range_to(lime, 5)) for sympathetic palettes
 
@@ -29,13 +30,14 @@ max_width = 11
 def set_colour_palette():
     colours = []
     for _ in range(8):
-        colours.append( cmapy.color('viridis', random.randrange(0, 256, 8), rgb_order=True) )
+        colours.append( cmapy.color('viridis', randrange(0, 256, 8), rgb_order=True) )
+    return colours
 
 # From https://stackoverflow.com/questions/1969240/mapping-a-range-of-values-to-another
 def mapRange(value, inMin, inMax, outMin, outMax):
     return outMin + (((value - inMin) / (inMax - inMin)) * (outMax - outMin))
 
-set_colour_palette()
+colours = set_colour_palette()
 
 while True:
     # Rotate through the palette
