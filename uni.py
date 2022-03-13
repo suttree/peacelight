@@ -25,7 +25,8 @@ max_width = 11
 # try list(red.range_to(lime, 5)) for sympathetic palettes
 
 # Random colour palletes
-def set_colour_palette
+# colour maps available: https://matplotlib.org/stable/tutorials/colors/colormaps.html
+def set_colour_palette():
     colours = []
     for _ in range(8):
         colours.append( cmapy.color('viridis', random.randrange(0, 256, 8), rgb_order=True) )
