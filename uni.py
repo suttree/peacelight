@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import time, datetime, noise, cmpay
+import time, datetime, noise, cmapy
 from colorsys import hsv_to_rgb
 from random import random, randint
 
