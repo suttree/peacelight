@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import time, datetime, noise
+import time, datetime, noise, cmpay
 from colorsys import hsv_to_rgb
 from random import random, randint
 
@@ -12,23 +12,35 @@ hour = start = end = num_rows = 0
 max_width = 11
 
 # Sunrise / sunset
-colours = [
-    [99, 37, 33],
-    [253,96,20],
-    [253,125,1],
-    [253,217,20],
-    [251,253,1],
-    [253,246,81],
-]
+#colours = [
+#    [99, 37, 33],
+#    [253,96,20],
+#    [253,125,1],
+#    [253,217,20],
+#    [251,253,1],
+#    [253,246,81],
+#]
 
-colour = colours.pop(0)
-colours.append(colour)
+# https://pypi.org/project/colour/
+# try list(red.range_to(lime, 5)) for sympathetic palettes
+
+# Random colour palletes
+def set_colour_palette
+    colours = []
+    for _ in range(8):
+        colours.append( cmapy.color('viridis', random.randrange(0, 256, 8), rgb_order=True) )
 
 # From https://stackoverflow.com/questions/1969240/mapping-a-range-of-values-to-another
 def mapRange(value, inMin, inMax, outMin, outMax):
     return outMin + (((value - inMin) / (inMax - inMin)) * (outMax - outMin))
 
+set_colour_palette()
+
 while True:
+    # Rotate through the palette
+    colour = colours.pop(0)
+    colours.append(colour)
+
     uh.clear()
 
     # morning: 0-5
@@ -88,7 +100,11 @@ while True:
     # v0.4.2
     # Off at night, quiet during the day, on in the evening
     pn = noise.pnoise2(random(), random())
-    if hour in range(0, 6):
+    if hour in range(0):
+        start, end = 0, 0
+        uh.set_brightness(0)
+        set_colour_palette()
+    elif hour in range(1, 6):
         start, end = 0, 0
         uh.set_brightness(0.0 + pn)
     elif hour in range(6, 8):
@@ -129,4 +145,4 @@ while True:
 
     uh.show()
 
-    time.sleep(randint(2, 20))
+    time.sleep(randint(2, 2048))
