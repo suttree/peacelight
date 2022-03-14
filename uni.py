@@ -28,9 +28,19 @@ max_width = 11
 # Random colour palletes
 # colour maps available: https://matplotlib.org/stable/tutorials/colors/colormaps.html
 def set_colour_palette():
+    palettes = ['spring', 'viridis', 'plasma', 'inferno', 'magma', 'spring', 'summer', 'autumn', 'winter', 'cool',
+              'Wistia', 'hot','Spectral', 'coolwarm', 'bwr', 'seismic', 'twilight', 'twilight_shifted', 'hsv', 
+              'Pastel1', 'Pastel2', 'Paired', 'Accent', 'Dark2',
+              'Set1', 'Set2', 'Set3', 'tab10', 'tab20', 'tab20b',
+              'tab20c', 'prism', 'gist_rainbow', 'jet',
+              'turbo', 'nipy_spectral', 'gist_ncar']
+    palette = random.choice(palettes)
+    print(palette)
+    print("palette ^")
+
     colours = []
     for _ in range(8):
-        colours.append( cmapy.color('spring', randrange(0, 256, 8), rgb_order=True) )
+        colours.append( cmapy.color(palette, randrange(0, 256, 8), rgb_order=True) )
     return colours
 
 # From https://stackoverflow.com/questions/1969240/mapping-a-range-of-values-to-another
