@@ -44,8 +44,6 @@ while True:
     colour = colours.pop(0)
     colours.append(colour)
 
-    uh.clear()
-
     # morning: 0-5
     # afternoon: 6-12
     # evening: 13-17
@@ -102,40 +100,42 @@ while True:
 
     # v0.4.2
     # Off at night, quiet during the day, on in the evening
-    pn = noise.pnoise2(random(), random())
+    #pn = noise.pnoise2(random(), random())
     if hour in range(0):
         start, end = 0, 0
         uh.set_brightness(0)
         set_colour_palette()
     elif hour in range(1, 6):
-        start, end = 0, 0
-        uh.set_brightness(0.0 + pn)
+        start, end = 0, 1
+        uh.set_brightness(0.0)
     elif hour in range(6, 8):
         start, end = 0, 2
-        uh.set_brightness(0.2 + pn)
+        uh.set_brightness(0.2)
     elif hour in range(8, 10):
         start, end = 0, 4
-        uh.set_brightness(0.2 + pn)
+        uh.set_brightness(0.2)
     elif hour in range(10, 12):
         start, end = 2, 6
-        uh.set_brightness(0.4 + pn)
+        uh.set_brightness(0.4)
     elif hour in range(12, 14):
         start, end = 3, 7
-        uh.set_brightness(0.4 + pn)
+        uh.set_brightness(0.4)
     elif hour in range(16, 18):
         start, end = 4, 8
-        uh.set_brightness(0.5 + pn)
+        uh.set_brightness(0.5)
     elif hour in range(18, 20):
         start, end = 6, 14
         uh.set_brightness(1.0)
     elif hour in range(20, 22):
         start, end = 8, 16
-        uh.set_brightness(0.8 + pn)
+        uh.set_brightness(0.8)
     elif hour in range(22, 24):
         start, end = 16, 17
-        uh.set_brightness(0.4 + pn)
-    print(start, end, pn)
+        uh.set_brightness(0.4)
+    print(start, end)
+    print("---start, end ^")
 
+    uh.clear()
     for x in range(start, end):
         #hue = (time.time() / 10.0)
         #r, g, b = [int(c * 255) for c in hsv_to_rgb(hue, 1.0, 1.0)]
@@ -147,7 +147,8 @@ while True:
             print(r, g, b)
             print("----")
             uh.set_pixel(x, y, r, g, b)
+        print("pixels set ^")
 
     uh.show()
 
-    time.sleep(randint(2, 2048))
+    time.sleep(randint(2, 120))
