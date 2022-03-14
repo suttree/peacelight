@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import time, datetime, noise, cmapy
 from colorsys import hsv_to_rgb
-from random import random, randint, randrange
+from random import random, randint, randrange, choice
 
 from unicornhatmini import UnicornHATMini
 uh = UnicornHATMini()
@@ -34,7 +34,7 @@ def set_colour_palette():
               'Set1', 'Set2', 'Set3', 'tab10', 'tab20', 'tab20b',
               'tab20c', 'prism', 'gist_rainbow', 'jet',
               'turbo', 'nipy_spectral', 'gist_ncar']
-    palette = random.choice(palettes)
+    palette = choice(palettes)
     print(palette)
     print("palette ^")
 
