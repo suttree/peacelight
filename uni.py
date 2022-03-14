@@ -30,7 +30,7 @@ max_width = 11
 def set_colour_palette():
     colours = []
     for _ in range(8):
-        colours.append( cmapy.color('viridis', randrange(0, 256, 8), rgb_order=True) )
+        colours.append( cmapy.color('spring', randrange(0, 256, 8), rgb_order=True) )
     return colours
 
 # From https://stackoverflow.com/questions/1969240/mapping-a-range-of-values-to-another
@@ -117,7 +117,7 @@ while True:
     elif hour in range(10, 12):
         start, end = 2, 6
         uh.set_brightness(0.4)
-    elif hour in range(12, 14):
+    elif hour in range(12, 16):
         start, end = 3, 7
         uh.set_brightness(0.4)
     elif hour in range(16, 18):
@@ -148,7 +148,9 @@ while True:
             print("----")
             uh.set_pixel(x, y, r, g, b)
         print("pixels set ^")
+        print(colours)
+        print("COLOURS")
 
     uh.show()
 
-    time.sleep(randint(2, 120))
+    time.sleep(randint(2, 20))
