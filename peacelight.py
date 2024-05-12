@@ -27,8 +27,8 @@ def peace():
   while True:
     now = datetime.now()
     current_time = now.time()
-    start_time = datetime.time(18, 0)  # 6:00 PM
-    end_time = datetime.time(23, 59, 59)  # Midnight
+    start_time = datetime.strptime("18:00", "%H:%M").time()  # 6:00 PM
+    end_time = datetime.strptime("23:59:59", "%H:%M:%S").time()  # Midnight
 
     if start_time <= current_time <= end_time:
       scrollphathd.clear()
