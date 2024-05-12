@@ -25,7 +25,7 @@ def peace():
   seed = random.uniform(0.1, 1.0)
 
   while True:
-    now = datetime.datetime.now()
+    now = datetime.now()
     current_time = now.time()
     start_time = datetime.time(18, 0)  # 6:00 PM
     end_time = datetime.time(23, 59, 59)  # Midnight
