@@ -68,6 +68,8 @@ def peace():
                     brightness = 1.0
                 elif brightness < -1.0:
                     brightness = -1.0
+        else:
+            time.sleep(60)
 
 def mapRange(value, inMin, inMax, outMin, outMax):
 	return outMin + (((value - inMin) / (inMax - inMin)) * (outMax - outMin))
