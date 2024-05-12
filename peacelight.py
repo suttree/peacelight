@@ -18,11 +18,11 @@ import time
 import math
 
 def peace():
-	i = 1
-	step = 1
-	curr_hour = 0
-	brightness = 0.0
-	seed = random.uniform(0.1, 1.0)
+  i = 1
+  step = 1
+  curr_hour = 0
+  brightness = 0.0
+  seed = random.uniform(0.1, 1.0)
 
 	while True:
     now = datetime.datetime.now()
