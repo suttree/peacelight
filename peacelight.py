@@ -18,62 +18,53 @@ import time
 import math
 
 def peace():
-  i = 1
-  step = 1
-  curr_hour = 0
-  brightness = 0.0
-  seed = random.uniform(0.1, 1.0)
+	i = 1
+	step = 1
+	curr_hour = 0
+	brightness = 0.0
+	seed = random.uniform(0.1, 1.0)
 
-  while True:
-    now = datetime.now()
-    current_time = now.time()
-    start_time = datetime.strptime("18:00", "%H:%M").time()  # 6:00 PM
-    end_time = datetime.strptime("23:59:59", "%H:%M:%S").time()  # Midnight
+	while True:
+		scrollphathd.clear()
 
-    if start_time <= current_time <= end_time:
-      scrollphathd.clear()
+		#brightness = interp(i, [-1.0, 1.0], [0.0, 1.0]) # map the brightness between 0 and 1
+		b = interp(brightness, [-1.0, 1.0], [0.0, 1.0]) # map the brightness between 0 and 1
+		scrollphathd.fill(b, 0, 0, i, scrollphathd.height)
+		scrollphathd.show()
 
-      #brightness = interp(i, [-1.0, 1.0], [0.0, 1.0]) # map the brightness between 0 and 1
-      b = interp(brightness, [-1.0, 1.0], [0.0, 1.0]) # map the brightness between 0 and 1
-      scrollphathd.fill(b, 0, 0, i, scrollphathd.height)
-      scrollphathd.show()
+		# Sleep
+		time.sleep( abs(0.45 + float( pnoise1( i * seed ) ) * 4.0) )
 
-      # Sleep
-      time.sleep( abs(0.45 + float( pnoise1( i * seed ) ) * 4.0) )
+		# Control flow
+		if (i >= scrollphathd.width or i <= 0):
+			time.sleep( abs(5.25 + float(pnoise1( i * seed ) ) * 50.0 ) )
+			if step == 1:
+				step = -1
+			else:
+				step = 1
+		i = i + step
+		
+		# Map brightness to hour of day, each hour
+		hour = datetime.now().hour
+		if (curr_hour <> hour):
+			curr_hour = hour
+			if (hour >= 11 and hour <= 14):
+				brightness = 1.0 # brightest around noon
+			elif (hour < 11 and hour > 0):
+				brightness = brightness + 0.09 # taper up towards noon
+			elif (hour > 14 and hour <= 23):
+				brightness = brightness - 0.11 # taper down towards midnight
+			else:
+				brightness = -1.0 # erk, off
 
-      # Control flow
-      if (i >= scrollphathd.width or i <= 0):
-        time.sleep( abs(5.25 + float(pnoise1( i * seed ) ) * 50.0 ) )
-        if step == 1:
-          step = -1
-        else:
-          step = 1
-          i = i + step
-
-          # Map brightness to hour of day, each hour
-          hour = datetime.now().hour
-          if (curr_hour <> hour):
-            curr_hour = hour
-            if (hour >= 11 and hour <= 14):
-              brightness = 1.0 # brightest around noon
-            elif (hour < 11 and hour > 0):
-              brightness = brightness + 0.09 # taper up towards noon
-            elif (hour > 14 and hour <= 23):
-              brightness = brightness - 0.11 # taper down towards midnight
-            else:
-              brightness = -1.0 # erk, off
-
-              # Ensure we max out at +=1.0, for interpolation later on
-              if brightness > 1.0:
-                brightness = 1.0
-              elif brightness < -1.0:
-                brightness = -1.0
-              else:
-                time.sleep(60)
+			# Ensure we max out at +=1.0, for interpolation later on
+			if brightness > 1.0:
+				brightness = 1.0
+			elif brightness < -1.0:
+				brightness = -1.0
 
 def mapRange(value, inMin, inMax, outMin, outMax):
 	return outMin + (((value - inMin) / (inMax - inMin)) * (outMax - outMin))
 
 if __name__ == "__main__":
 	peace()
-
