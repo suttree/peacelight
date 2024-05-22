@@ -68,4 +68,3 @@ def mapRange(value, inMin, inMax, outMin, outMax):
 
 if __name__ == "__main__":
 	peace()
-
